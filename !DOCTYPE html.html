@@ -6,7 +6,7 @@
     <title>GymBro — Güc və Sağlamlıq Portalı</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* ===== ÜMUMİ AYARLAR ===== */
+        /* ===== 1. CSS SIFIRLAMA VƏ ƏSAS FON ===== */
         *, *::before, *::after { 
             box-sizing: border-box; 
             margin: 0; 
@@ -17,10 +17,10 @@
             --surface: #181818;
             --surface2: #222222;
             --border: #2a2a2a;
-            --accent: #e63946;
-            --accent2: #ff5500;
-            --text: #f0f0f0;
-            --muted: #888;
+            --accent: #ff5500;
+            --accent-hover: #e04a00;
+            --text: #ffffff;
+            --muted: #aaa;
         }
         body {
             background-color: var(--bg);
@@ -36,9 +36,9 @@
             flex-direction: column;
         }
 
-        /* ===== NAVİQASİYA (HEADER) ===== */
+        /* ===== 2. NAVİQASİYA (HEADER) ===== */
         header {
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.9);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border);
             position: fixed;
@@ -55,15 +55,15 @@
         }
         .logo-text {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: #fff;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
-        .logo-text span { color: var(--accent2); }
+        .logo-text span { color: var(--accent); }
         
         .nav-links {
             display: flex;
-            gap: 20px;
+            gap: 25px;
             list-style: none;
             align-items: center;
         }
@@ -71,22 +71,24 @@
             color: var(--text);
             text-decoration: none;
             font-weight: 500;
+            font-size: 1rem;
             transition: color 0.3s;
         }
-        .nav-links a:hover { color: var(--accent2); }
+        .nav-links a:hover { color: var(--accent); }
         .auth-btn {
-            background: var(--accent2);
+            background: var(--accent);
             color: white !important;
-            padding: 8px 16px;
-            border-radius: 5px;
+            padding: 8px 18px;
+            border-radius: 6px;
             font-weight: 600;
+            transition: background 0.2s;
         }
-        .auth-btn:hover { background: #e04a00; }
+        .auth-btn:hover { background: var(--accent-hover); }
 
-        /* ===== HERO BÖLMƏSİ ===== */
+        /* ===== 3. HERO BÖLMƏSİ ===== */
         .hero {
-            margin-top: 80px;
-            padding: 100px 20px 60px;
+            margin-top: 100px;
+            padding: 80px 20px 40px;
             text-align: center;
             max-width: 800px;
             margin-left: auto;
@@ -95,21 +97,22 @@
         .hero h1 {
             font-family: 'Bebas Neue', sans-serif;
             font-size: 4.5rem;
-            line-height: 1;
+            line-height: 1.1;
             margin-bottom: 20px;
             letter-spacing: 2px;
         }
-        .hero h1 span { color: var(--accent2); }
+        .hero h1 span { color: var(--accent); }
         .hero p {
             font-size: 1.2rem;
             color: var(--muted);
-            margin-bottom: 30px;
+            line-height: 1.6;
         }
 
-        /* ===== MAKRÓ ÖLÇƏR & FUNKSİYALAR ===== */
+        /* ===== 4. KARTLAR (MAKRÓ & KABİNET) ===== */
         .main-content {
             max-width: 1200px;
-            margin: 0 auto padding 40px 20px;
+            margin: 0 auto;
+            padding: 20px 20px 60px;
             flex: 1;
             width: 100%;
         }
@@ -117,97 +120,117 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
         .card {
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 30px;
+            padding: 35px;
             text-align: center;
-            transition: transform 0.3s, border-color 0.3s;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
         }
         .card:hover {
             transform: translateY(-5px);
-            border-color: var(--accent2);
+            border-color: var(--accent);
+            box-shadow: 0 10px 20px rgba(255, 85, 0, 0.1);
         }
         .card h2 {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin-bottom: 15px;
             color: #fff;
+            letter-spacing: 1px;
         }
         .card p {
             color: var(--muted);
             margin-bottom: 25px;
-            font-size: 0.95rem;
-            line-height: 1.5;
+            font-size: 1rem;
+            line-height: 1.6;
         }
         .card-btn {
             display: inline-block;
             background: transparent;
-            color: var(--accent2);
-            border: 2px solid var(--accent2);
-            padding: 10px 24px;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+            padding: 10px 28px;
             border-radius: 6px;
             text-decoration: none;
             font-weight: 600;
             transition: 0.3s;
         }
         .card-btn:hover {
-            background: var(--accent2);
+            background: var(--accent);
             color: white;
         }
 
-        /* ===== TREND MƏHSULLAR SƏBƏTİ ===== */
+        /* ===== 5. MƏHSULLAR BÖLMƏSİ VƏ SƏBƏT DÜYMƏSİ ===== */
         .products-section {
-            background: rgba(24, 24, 24, 0.6);
+            background: rgba(24, 24, 24, 0.7);
             border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 30px;
-            margin-top: 20px;
+            padding: 40px 20px;
         }
         .products-section h2 {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 2.2rem;
-            margin-bottom: 20px;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
             text-align: center;
+            letter-spacing: 1px;
         }
         .product-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 25px;
             justify-content: center;
         }
         .product-item {
             background: var(--surface2);
             border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 15px;
-            width: 220px;
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
             text-align: center;
-        }
-        .product-item strong { display: block; margin-bottom: 10px; }
-        .add-cart-btn {
-            background: #333;
-            color: white;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.85rem;
             transition: 0.2s;
         }
-        .add-cart-btn:hover { background: var(--accent2); }
+        .product-item:hover {
+            border-color: #444;
+        }
+        .product-item strong { 
+            display: block; 
+            margin-bottom: 8px; 
+            font-size: 1.1rem;
+        }
+        .product-price {
+            color: var(--accent); 
+            font-weight: bold; 
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        .add-cart-btn {
+            background: #2a2a2a;
+            color: white;
+            border: 1px solid #444;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            width: 100%;
+            transition: 0.2s;
+        }
+        .add-cart-btn:hover { 
+            background: var(--accent); 
+            border-color: var(--accent);
+        }
 
-        /* ===== FOOTER ===== */
+        /* ===== 6. FOOTER ===== */
         footer {
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.95);
             border-top: 1px solid var(--border);
-            padding: 20px;
+            padding: 25px;
             text-align: center;
             color: var(--muted);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             margin-top: auto;
         }
     </style>
@@ -219,7 +242,7 @@
             <div class="logo-text">GYM<span>BRO</span></div>
             <ul class="nav-links">
                 <li><a href="#home">Ana Səhifə</a></li>
-                <li><a href="macro.html" onclick="alert('Macro Ölçər səhifəsinə yönləndirilir...')">Macro Ölçər</a></li>
+                <li><a href="macro.html">Macro Ölçər</a></li>
                 <li><a href="login.html" class="auth-btn">Daxil Ol</a></li>
             </ul>
         </div>
@@ -227,7 +250,7 @@
 
     <section id="home" class="hero">
         <h1>BƏDƏNİNİZİ <span>DƏYİŞDİRİN</span></h1>
-        <p>Hədəflərinizə uyğun kalori ehtiyacınızı hesablayın, düzgün makroları öyrənin və idman formunuzu növbəti səviyyəyə daşıyın.</p>
+        <p>Hədəflərinizə uyğun kalori ehtiyacınızı hesablayın, düzgün makroları (Protein, Karbohidrat, Yağ) öyrənin və idman fəaliyyətinizi növbəti səviyyəyə daşıyın.</p>
     </section>
 
     <main class="main-content">
@@ -235,13 +258,13 @@
             
             <div class="card">
                 <h2>Macro Ölçər</h2>
-                <p>Gündəlik protein, karbonhidrat və yağ ehtiyacınızı bədən ölçülərinizə əsasən dəqiq hesablayın və tarixçədə saxlayın.</p>
+                <p>Gündəlik qəbul etməli olduğunuz kalori miqdarını bədən ölçülərinizə və aktivliyinizə əsasən dəqiq hesablayın.</p>
                 <a href="macro.html" class="card-btn">Hesablamağa Başla</a>
             </div>
 
             <div class="card">
                 <h2>Şəxsi Kabinet</h2>
-                <p>Portala qeydiyyatdan keçərək öz statistikalarınızı yadda saxlayın və hədəflərinizi izləyin.</p>
+                <p>Layihəyə qeydiyyatdan keçərək öz nəticələrinizi yadda saxlayın, tərəqqinizi fərdi şəkildə izləyin.</p>
                 <a href="qeydiyyat.html" class="card-btn">İndi Qoşul</a>
             </div>
 
@@ -250,27 +273,31 @@
         <div class="products-section">
             <h2>Trend İdman Qidaları</h2>
             <div class="product-list">
+                
                 <div class="product-item">
                     <strong>Whey Protein (1kg)</strong>
-                    <p style="color:var(--accent2); font-weight:bold; margin-bottom:8px;">85.00 ₼</p>
+                    <div class="product-price">85.00 ₼</div>
                     <button class="add-cart-btn" onclick="alert('Məhsul səbətə əlavə olundu!')">Səbətə At</button>
                 </div>
+
                 <div class="product-item">
                     <strong>Creatine Monohydrate</strong>
-                    <p style="color:var(--accent2); font-weight:bold; margin-bottom:8px;">35.00 ₼</p>
+                    <div class="product-price">35.00 ₼</div>
                     <button class="add-cart-btn" onclick="alert('Məhsul səbətə əlavə olundu!')">Səbətə At</button>
                 </div>
+
                 <div class="product-item">
                     <strong>BCAA Enerji İçkisi</strong>
-                    <p style="color:var(--accent2); font-weight:bold; margin-bottom:8px;">4.50 ₼</p>
+                    <div class="product-price">4.50 ₼</div>
                     <button class="add-cart-btn" onclick="alert('Məhsul səbətə əlavə olundu!')">Səbətə At</button>
                 </div>
+
             </div>
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2026 GymBro. Bütün hüquqlar qorunur. Yaradıldı: Tuncay</p>
+        <p>&copy; 2026 GymBro. Bütün hüquqlar qorunur. Hazırladı: Tuncay</p>
     </footer>
 
 </body>
